@@ -7,6 +7,6 @@ router.register(r'trips', TripViewSet, basename='trip')
 
 urlpatterns = [
     path('login/', login_view, name='login'),
-    path('register/', register_view, name='register'), # <--- Adicionado
+    path('register/', register_view, name='register'),
     path('', include(router.urls)),
 ]
