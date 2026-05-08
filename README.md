@@ -32,15 +32,15 @@
   <img src="frontend/src/assets/screenshots/register.png" width="45%" alt="Register Screen" />
 </p>
 
-### Smart Planning (Editor)
-<p align="center">
-  <img src="frontend/src/assets/screenshots/newtrips.png" width="90%" alt="Map Editor" />
-</p>
-
 ### Dashboard & Navigation
 <p align="center">
   <img src="frontend/src/assets/screenshots/home.png" width="45%" style="height: 250px; object-fit: cover;" alt="Home Page" />
   <img src="frontend/src/assets/screenshots/mytrips.png" width="45%" style="height: 250px; object-fit: cover;" alt="My Trips" />
+</p>
+
+### Smart Planning (Editor)
+<p align="center">
+  <img src="frontend/src/assets/screenshots/newtrips.png" width="90%" alt="Map Editor" />
 </p>
 
 ---
