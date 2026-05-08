@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
+
+body {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  background-color: #f8f9fa;
+  color: #212529;
+  font-weight: 400; /* Fonte base com mais corpo */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Logo mais dinâmico e forte */
+.logo-text, .nav-logo {
+  color: #007bff;
+  font-weight: 700; /* Mais grosso e chamativo */
+  font-size: 2rem;
+  margin: 0;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-logo {
+  color: white; 
+}
+
+/* Links padronizados: sem sublinhado, apenas mudam de cor no hover */
+a { 
+  text-decoration: none !important; 
+  color: #007bff;
+  font-weight: 600; /* Link um pouquinho mais destacado */
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  text-decoration: none !important; /* Garante que não terá linha */
+  color: #0056b3; /* Fica um azul mais escuro ao passar o mouse */
+}
