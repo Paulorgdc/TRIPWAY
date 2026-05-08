@@ -1,5 +1,9 @@
 # 🌍 TRIPWAY | Smart Travel Planner 🗺️
 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
+![Node.js](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Django](https://img.shields.io/badge/django-%23092e20.svg?style=for-the-badge&logo=django&logoColor=white)
@@ -31,7 +35,7 @@
 
 ### Smart Planning (Editor)
 <p align="center">
-  <img src="frontend/assets/screenshots/editor.png" width="90%" alt="Map Editor" />
+  <img src="frontend/assets/screenshots/newtrips.png" width="90%" alt="Map Editor" />
 </p>
 
 ### Dashboard & Navigation
