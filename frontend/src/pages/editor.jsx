@@ -77,7 +77,7 @@ export default function Editor() {
         <div className="d-flex justify-content-between align-items-center w-100 px-lg-5">
           <div className="d-flex align-items-center gap-3">
             <Link to="/mytrips" className="btn-back-icon text-decoration-none"><FaArrowLeft /></Link>
-            <div className="nav-logo-wrap m-0">TripWay <span className="editor-badge">Editor</span></div>
+            <div className="nav-logo-wrap m-0">TRIPWAY <span className="editor-badge">Editor</span></div>
           </div>
           <div className="d-flex gap-3 align-items-center">
             <button className="btn-tripway"><FaSave className="me-2" /> Salvar Roteiro</button>

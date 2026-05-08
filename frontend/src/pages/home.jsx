@@ -22,7 +22,7 @@ export default function Home() {
       <main className="container mt-5 dashboard-wrapper flex-grow-1">
         <div className="glass-card p-5">
           <div className="text-center mb-5">
-            <h2 className="fw-bold text-dark mb-3">Bem-vindo ao TripWay! 🌍</h2>
+            <h2 className="fw-bold text-dark mb-3">Bem-vindo ao TRIPWAY! 🌍</h2>
             <p className="text-muted fs-5">Planejar a viagem dos seus sonhos nunca foi tão simples. Veja como funciona:</p>
           </div>
 

@@ -49,7 +49,7 @@ export default function Login() {
       <div className="auth-card">
         <div className="logo-container">
           <img src={logo} alt="Logo" className="logo-img" />
-          <h1 className="logo-text">TripWay</h1>
+          <h1 className="logo-text">TRIPWAY</h1>
         </div>
         
         <h2 className="auth-subtitle">Sua jornada começa aqui.</h2>

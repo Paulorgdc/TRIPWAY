@@ -16,7 +16,7 @@ export default function Navbar() {
       <div className="d-flex justify-content-between align-items-cen ter w-100 px-lg-5">
         
         <Link to="/home" className="nav-logo-wrap m-0 text-decoration-none">
-          TripWay
+          TRIPWAY
         </Link>
         
         <div className="d-flex gap-4 align-items-center header-links">

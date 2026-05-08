@@ -21,7 +21,7 @@ export default function Register() {
         body: JSON.stringify(formData),
       });
       if (resp.ok) {
-        alert("Conta criada! Bem-vindo ao TripWay.");
+        alert("Conta criada! Bem-vindo ao TRIPWAY.");
         navigate("/"); 
       } else {
         alert("Erro ao cadastrar. Verifique os dados.");
@@ -41,7 +41,7 @@ export default function Register() {
 
       <div className="auth-card">
         <div className="logo-container">
-          <img src={logo} alt="Logo" className="logo-img" />          <h1 className="logo-text">TripWay</h1>
+          <img src={logo} alt="Logo" className="logo-img" />          <h1 className="logo-text">TRIPWAY</h1>
         </div>
         
 <h2 className="auth-subtitle">Crie sua conta grátis</h2>
