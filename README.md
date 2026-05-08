@@ -8,7 +8,6 @@
 ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
 ![Django](https://img.shields.io/badge/django-%23092e20.svg?style=for-the-badge&logo=django&logoColor=white)
 ![Leaflet](https://img.shields.io/badge/leaflet-%23199900.svg?style=for-the-badge&logo=leaflet&logoColor=white)
-![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 **TRIPWAY** is a high-end, "all-in-one" travel planning platform designed to optimize the tourist experience. It features a seamless user experience focused on modern route mapping, real-time discovery of services, and a fluid glassmorphism interface for building a perfect travel itinerary.
 
@@ -29,19 +28,19 @@
 
 ### Platform Entrance
 <p align="center">
-  <img src="frontend/assets/screenshots/login.png" width="45%" alt="Login Screen" />
-  <img src="frontend/assets/screenshots/register.png" width="45%" alt="Register Screen" />
+  <img src="frontend/src/assets/screenshots/login.png" width="45%" alt="Login Screen" />
+  <img src="frontend/src/assets/screenshots/register.png" width="45%" alt="Register Screen" />
 </p>
 
 ### Smart Planning (Editor)
 <p align="center">
-  <img src="frontend/assets/screenshots/newtrips.png" width="90%" alt="Map Editor" />
+  <img src="frontend/src/assets/screenshots/newtrips.png" width="90%" alt="Map Editor" />
 </p>
 
 ### Dashboard & Navigation
 <p align="center">
-  <img src="frontend/assets/screenshots/home.png" width="45%" style="height: 250px; object-fit: cover;" alt="Home Page" />
-  <img src="frontend/assets/screenshots/mytrips.png" width="45%" style="height: 250px; object-fit: cover;" alt="My Trips" />
+  <img src="frontend/src/assets/screenshots/home.png" width="45%" style="height: 250px; object-fit: cover;" alt="Home Page" />
+  <img src="frontend/src/assets/screenshots/mytrips.png" width="45%" style="height: 250px; object-fit: cover;" alt="My Trips" />
 </p>
 
 ---
