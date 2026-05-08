@@ -1,9 +1,8 @@
 import React, { useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap, GeoJSON, useMapEvents } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
-// Ícones coloridos para os marcadores
 const getMarkerIcon = (color = "blue") => {
   return new L.Icon({
     iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-${color}.png`,
@@ -25,39 +24,13 @@ function ChangeView({ center, zoom }) {
   return null;
 }
 
-function FitBounds({ geojson }) {
-  const map = useMap();
-  useEffect(() => {
-    if (!geojson) return;
-    try {
-      const layer = L.geoJSON(geojson);
-      const bounds = layer.getBounds();
-      if (bounds.isValid()) {
-        map.fitBounds(bounds, { padding: [40, 40] });
-      }
-    } catch (e) {
-      console.warn("Erro ao ajustar zoom da rota:", e);
-    }
-  }, [geojson, map]);
-  return null;
-}
-
-function ClickHandler({ onClickMap }) {
-  useMapEvents({
-    click(e) {
-      if (onClickMap) onClickMap({ lat: e.latlng.lat, lng: e.latlng.lng });
-    },
-  });
-  return null;
-}
-
 export default function Map({
-  center = { lat: -15.7938, lng: -47.8827 }, // Brasília por padrão
+  center = { lat: -15.7938, lng: -47.8827 },
   markers = [],
-  routeGeoJSON = null,
   zoom = 13,
-  onClickMap = null,
-  onMarkerClick = null,
+  onAddItinerary = null, // Nova função para o botão do Popup
+  onHomeDragEnd = null,
+  isAdjustingHome = false,
   height = "70vh",
 }) {
   return (
@@ -68,28 +41,45 @@ export default function Map({
     >
       <ChangeView center={center} zoom={zoom} />
       <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-      <ClickHandler onClickMap={onClickMap} />
 
       {markers.map((m, i) => (
         <Marker 
-          key={i} 
+          key={m.id || i} 
           position={[m.lat, m.lng]} 
           icon={getMarkerIcon(m.color || "blue")}
-          eventHandlers={{ click: () => onMarkerClick && onMarkerClick(m) }}
+          draggable={m.id === "home-base" && isAdjustingHome}
+          eventHandlers={{ 
+            dragend: (e) => {
+              if (m.id === "home-base" && onHomeDragEnd) {
+                const marker = e.target;
+                const position = marker.getLatLng();
+                onHomeDragEnd({ lat: position.lat, lng: position.lng });
+              }
+            }
+          }}
         >
           <Popup>
-            <strong>{m.title || "Local Selecionado"}</strong>
-            {m.isPoi && <><br/><small className="text-primary">Clique para adicionar</small></>}
+            <div className="text-center">
+              <strong className="d-block mb-2">{m.title}</strong>
+              
+              {/* Botão de Selecionar apenas para Pontos de Interesse (POIs) */}
+              {m.isPoi && (
+                <button 
+                  className="btn btn-primary btn-sm fw-bold px-3"
+                  style={{ borderRadius: '8px', fontSize: '0.75rem' }}
+                  onClick={() => onAddItinerary && onAddItinerary(m)}
+                >
+                  Selecionar
+                </button>
+              )}
+
+              {m.id === "home-base" && isAdjustingHome && (
+                <p className="text-primary small m-0 mt-2">Arraste para o local correto</p>
+              )}
+            </div>
           </Popup>
         </Marker>
       ))}
-
-      {routeGeoJSON && (
-        <>
-          <GeoJSON data={routeGeoJSON} style={{ color: "#1976d2", weight: 5 }} />
-          <FitBounds geojson={routeGeoJSON} />
-        </>
-      )}
     </MapContainer>
   );
 }

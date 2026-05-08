@@ -35,15 +35,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px; /* Deixando o ícone um pouco mais "colado" no texto */
+  gap: 0px;
   margin-bottom: 1.5rem;
 }
 
 .logo-img {
-  width: 75px; /* Aumentamos bem o tamanho aqui (antes estava 45px) */
+  width: 75px; 
   height: auto;
   object-fit: contain;
-  /* margin-top: -5px; (Descomente essa linha se a logo parecer estar um pouquinho mais alta que o texto) */
+  margin-right: -2px; 
 }
 
 .auth-card h2 {

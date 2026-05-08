@@ -27,7 +27,7 @@ export default [
         'warn',
         { allowConstantExport: true },
       ],
-      'no-unused-vars': 'warn', // Aviso em vez de erro para não travar o dev
+      'no-unused-vars': 'warn',
     },
   },
 ]

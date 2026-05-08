@@ -1,12 +1,13 @@
 import { createBrowserRouter, RouterProvider, Navigate } from "react-router-dom";
 
-// Páginas (Padrão: inglês e minúsculo)
+// Páginas (Agora cada uma tem sua função clara)
 import Login from "./pages/login";
 import Register from "./pages/register";
-import Home from "./pages/home";
-import MyTrips from "./pages/my-trips";
+import Home from "./pages/home";       // Tela de Boas-vindas / Tutorial
+import Editor from "./pages/editor";   // O Mapa / Criador de rotas
+import MyTrips from "./pages/mytrips"; // Lista de rotas salvas
 
-// Guards (Padrão: inglês e minúsculo)
+// Guards
 import RequireAuth from "./auth/require-auth";
 import RedirectIfAuthed from "./auth/redirect-if-authed";
 
@@ -20,7 +21,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/register", // Antigo /SingIn
+    path: "/register", 
     element: (
       <RedirectIfAuthed>
         <Register />
@@ -28,15 +29,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/my-trips", // Dashboard principal
-    element: (
-      <RequireAuth>
-        <MyTrips />
-      </RequireAuth>
-    ),
-  },
-  {
-    path: "/home/:tripId", // Editor de roteiro (Site.jsx)
+    path: "/home", // Nova rota principal (Tutorial)
     element: (
       <RequireAuth>
         <Home />
@@ -44,8 +37,24 @@ const router = createBrowserRouter([
     ),
   },
   {
+    path: "/mytrips", // Suas viagens salvas
+    element: (
+      <RequireAuth>
+        <MyTrips />
+      </RequireAuth>
+    ),
+  },
+  {
+    path: "/editor/:tripId", // O Editor de rotas (serve tanto para "new" quanto para editar uma pronta)
+    element: (
+      <RequireAuth>
+        <Editor />
+      </RequireAuth>
+    ),
+  },
+  {
     path: "*",
-    element: <Navigate to="/my-trips" replace />,
+    element: <Navigate to="/home" replace />, // Se o usuário digitar URL errada, joga pro Tutorial
   },
 ]);
 

@@ -1,68 +1,71 @@
 // src/pages/home.jsx
-import { useState } from "react";
-import { useParams, Link } from "react-router-dom";
-import { FaRoute, FaSave, FaArrowLeft, FaMapMarkedAlt } from "react-icons/fa";
-import Map from "../components/map";
-import SearchMap from "../components/search-map";
-import LogoutButton from "../components/logout-button";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaSearchLocation, FaListUl, FaShareAlt, FaPlus } from 'react-icons/fa';
+import Navbar from '../components/navbar';
 import videoBg from "../assets/background.mp4";
 import "./home.css";
 
 export default function Home() {
-  const { tripId } = useParams();
-  const [mapCenter, setMapCenter] = useState({ lat: -15.7938, lng: -47.8827 });
+  const navigate = useNavigate();
 
   return (
-    <div className="home-container">
-      {/* Vídeo de fundo com menos brilho para não atrapalhar o mapa */}
+    // Adicionamos flex-column aqui para o footer descer
+    <div className="home-container d-flex flex-column">
       <video autoPlay loop muted className="home-video-bg">
         <source src={videoBg} type="video/mp4" />
       </video>
 
-      {/* Navbar flutuante e moderna */}
-      <nav className="glass-nav container-fluid">
-        <div className="d-flex justify-content-between align-items-center w-100 px-lg-5">
-          <div className="d-flex align-items-center gap-3">
-            <Link to="/my-trips" className="btn-back"> <FaArrowLeft /> </Link>
-            <h2 className="nav-logo m-0">TripWay <small>Editor</small></h2>
-          </div>
-          
-          <div className="d-flex gap-3 align-items-center">
-            <button className="btn-save"> <FaSave className="me-2" /> Salvar Roteiro </button>
-            <LogoutButton className="btn-logout-header" />
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
-      <main className="main-content container-fluid px-lg-5">
-        <div className="row h-100">
-          {/* Coluna de Controles (Esquerda) */}
-          <div className="col-lg-4 py-4">
-            <div className="glass-card p-4 h-100">
-              <h4 className="fw-bold mb-4"> <FaMapMarkedAlt className="text-primary me-2"/> Planejamento</h4>
-              
-              <div className="mb-4">
-                <label className="small fw-bold text-muted">BUSCAR DESTINO</label>
-                <SearchMap onResult={(r) => setMapCenter({ lat: r.lat, lng: r.lng })} />
+      {/* Adicionamos flex-grow-1 para essa parte ocupar o espaço do meio */}
+      <main className="container mt-5 dashboard-wrapper flex-grow-1">
+        <div className="glass-card p-5">
+          <div className="text-center mb-5">
+            <h2 className="fw-bold text-dark mb-3">Bem-vindo ao TripWay! 🌍</h2>
+            <p className="text-muted fs-5">Planejar a viagem dos seus sonhos nunca foi tão simples. Veja como funciona:</p>
+          </div>
+
+          <div className="row g-4 mb-5">
+            <div className="col-md-4">
+              <div className="tutorial-step">
+                <FaSearchLocation className="tutorial-icon" />
+                <h5 className="fw-bold text-dark">1. Escolha o Destino</h5>
+                <p className="text-muted small m-0">Busque no mapa interativo a cidade ou país que você deseja explorar.</p>
               </div>
+            </div>
+            
+            <div className="col-md-4">
+              <div className="tutorial-step">
+                <FaListUl className="tutorial-icon" />
+                <h5 className="fw-bold text-dark">2. Monte seu Roteiro</h5>
+                <p className="text-muted small m-0">Adicione hotéis, restaurantes e pontos turísticos ao seu itinerário diário.</p>
+              </div>
+            </div>
 
-              <div className="itinerary-section">
-                <label className="small fw-bold text-muted">SEU ROTEIRO</label>
-                <div className="empty-state text-center py-5">
-                  <p className="text-muted">Clique no mapa ou busque um local para começar.</p>
-                </div>
+            <div className="col-md-4">
+              <div className="tutorial-step">
+                <FaShareAlt className="tutorial-icon" />
+                <h5 className="fw-bold text-dark">3. Salve e Aproveite</h5>
+                <p className="text-muted small m-0">Suas rotas ficam salvas nas "Minhas Rotas" para você acessar de qualquer lugar.</p>
               </div>
             </div>
           </div>
 
-          {/* Coluna do Mapa (Direita) */}
-          <div className="col-lg-8 py-4">
-            <div className="map-wrapper shadow-lg">
-              <Map center={mapCenter} height="100%" />
-            </div>
+          <div className="text-center border-top pt-4">
+            <button className="btn-tripway mx-auto" style={{fontSize: '1.2rem', padding: '15px 40px'}} onClick={() => navigate('/editor/new')}>
+              <FaPlus className="me-2" /> Começar Minha Primeira Rota
+            </button>
           </div>
         </div>
       </main>
+
+      {/* NOVO FOOTER AQUI */}
+      <footer className="w-100 text-center py-3 mt-auto" style={{ background: 'rgba(255,255,255,0.1)', backdropFilter: 'blur(10px)', borderTop: '1px solid rgba(255,255,255,0.2)' }}>
+        <small className="text-white fw-medium">
+          &copy; 2025 TRIPWAY. Todos os direitos reservados.
+        </small>
+      </footer>
     </div>
   );
 }

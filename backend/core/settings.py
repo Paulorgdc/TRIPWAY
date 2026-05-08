@@ -65,6 +65,12 @@ AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},
 ]
 
+
+AUTHENTICATION_BACKENDS = [
+    'users.backends.EmailOrUsernameModelBackend', # O arquivo que você acabou de criar
+    'django.contrib.auth.backends.ModelBackend',  # O padrão do Django
+]
+
 LANGUAGE_CODE = 'pt-br'
 TIME_ZONE = 'America/Cuiaba'
 USE_I18N = True

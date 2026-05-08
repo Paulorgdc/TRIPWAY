@@ -8,38 +8,38 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'vite.svg'],
+      includeAssets: ['favicon.ico'], // Deixamos apenas o favicon aqui para evitar erros
       devOptions: {
         enabled: true
       },
       manifest: {
-        name: 'TripWay',
-        short_name: 'TripWay',
+        name: 'TRIPWAY',
+        short_name: 'TRIPWAY',
         description: 'Planeje sua viagem com facilidade.',
-        theme_color: '#ffffff',
-        background_color: '#ffffff',
+        theme_color: '#007bff', // Cor da barra de navegação no celular (Azul do TripWay)
+        background_color: '#f8f9fa', // Cor da tela de carregamento (Cinza claro do fundo)
         display: 'standalone',
         start_url: '/',
         icons: [
           {
-            src: 'android-chrome-192x192.png',
+            src: 'logo192.png', // Nome mais limpo (Salve na pasta public com esse nome!)
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable' // Isso ajuda o ícone a não ficar cortado no Android
           },
           {
-            src: 'android-chrome-512x512.png',
+            src: 'logo512.png', // Nome mais limpo (Salve na pasta public com esse nome!)
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/png',
+            purpose: 'any maskable'
           }
         ]
       }
     })
   ],
-  // --- ADICIONE ISSO AQUI ---
   server: {
     host: '127.0.0.1', // Força o servidor a rodar neste IP
     port: 5173,
   },
-  // --------------------------
   base: "/",
 })
