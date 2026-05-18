@@ -39,9 +39,7 @@
 </p>
 
 ### Smart Planning (Editor)
-<p align="center">
-  <img src="frontend/src/assets/screenshots/newtrips.png" width="90%" alt="Map Editor" />
-</p>
+![Map Editor](frontend/src/assets/screenshots/newtrips.png)
 
 ---
 
